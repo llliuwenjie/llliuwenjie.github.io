@@ -49,12 +49,12 @@
   <meta name="description" content="node.js环境1node -v  git环境1git --version  博客地址">
 <meta name="keywords" content="github,个人博客,hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用github搭建个人博客">
+<meta property="og:title" content="使用github&#x2F;gitee + hexo搭建个人博客">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;22&#x2F;%E4%BD%BF%E7%94%A8github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2&#x2F;index.html">
 <meta property="og:site_name" content="刘文杰">
 <meta property="og:description" content="node.js环境1node -v  git环境1git --version  博客地址">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-24T08:47:05.707Z">
+<meta property="og:updated_time" content="2020-08-24T10:08:08.149Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/10/22/%E4%BD%BF%E7%94%A8github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
@@ -69,7 +69,7 @@
   };
 </script>
 
-  <title>使用github搭建个人博客 | 刘文杰</title>
+  <title>使用github/gitee + hexo搭建个人博客 | 刘文杰</title>
   
 
 
@@ -191,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          使用github搭建个人博客
+          使用github/gitee + hexo搭建个人博客
         </h1>
 
         <div class="post-meta">
@@ -208,7 +208,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-24 16:47:05" itemprop="dateModified" datetime="2020-08-24T16:47:05+08:00">2020-08-24</time>
+                <time title="修改时间：2020-08-24 18:08:08" itemprop="dateModified" datetime="2020-08-24T18:08:08+08:00">2020-08-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,6 +239,7 @@
 
 <h3 id="博客地址"><a href="#博客地址" class="headerlink" title="博客地址"></a>博客地址</h3><a id="more"></a>
 <p>Github账户新建项目，项目要遵守格式：账户名.github.io，勾选Initialize this repository with a README<br>    在建立好的项目右侧有settings按钮，点击它，向下拉到GitHub Pages，source选择master branch<br>    等待一会会刷新，出现提示 Your site is published at <a href="https://xxx.github.io/" target="_blank" rel="noopener">https://xxx.github.io/</a><br>    就是博客地址</p>
+<h3 id="hexo-文档"><a href="#hexo-文档" class="headerlink" title="hexo 文档"></a>hexo 文档</h3><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></p>
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>自己随意选中新建一个文件夹，通过命令安装Hexo</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g</span><br></pre></td></tr></table></figure>
 <p>输入hexo -v，检查hexo是否安装成功</p>
@@ -248,11 +249,7 @@
 <p>输入npm install，安装所需组件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>输入hexo g，启动Hexo</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-<p>输入hexo s，开启服务器，访问该网址，正式体验Hexo。默认端口是4000，倘若提示端口被占，则使用命令hexo server -p 5000</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean # 清空已有hexo网站文件 </span><br><span class="line">hexo generate(or g) # 依据网页文本与新的CSS样式生成新网站文件 </span><br><span class="line">hexo server(or s) # 启动本地服务器，可以在localhost:4000查看网站修改效果</span><br></pre></td></tr></table></figure>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>将Hexo与Github page联系起来，设置Git的user name和email</p>
 <p>在安装blog的文件夹中鼠标右键点击Git Base Here。配置自己的用户名和邮箱</p>
 <p>输入hexo s，开启服务器，访问该网址，正式体验Hexo。默认端口是4000，倘若提示端口被占，则使用命令hexo server -p 5000</p>
@@ -313,8 +310,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/10/22/linux/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="prev" title="linux常用命令">
-      <i class="fa fa-chevron-left"></i> linux常用命令
+    <a href="/2019/10/22/mysql/mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="prev" title="mysql常用命令">
+      <i class="fa fa-chevron-left"></i> mysql常用命令
     </a></div>
       <div class="post-nav-item">
     <a href="/2019/10/22/idea%E6%8F%92%E4%BB%B6/" rel="next" title="idea插件">
@@ -379,7 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js环境"><span class="nav-number">1.</span> <span class="nav-text">node.js环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git环境"><span class="nav-number">2.</span> <span class="nav-text">git环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客地址"><span class="nav-number">3.</span> <span class="nav-text">博客地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">4.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">5.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">6.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置免密登录"><span class="nav-number">7.</span> <span class="nav-text">配置免密登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加秘钥到GitHub-换电脑后要重新执行"><span class="nav-number">8.</span> <span class="nav-text">添加秘钥到GitHub,换电脑后要重新执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Deployment，在其文件夹中，找到-config-yml文件，修改repository值。"><span class="nav-number">9.</span> <span class="nav-text">配置Deployment，在其文件夹中，找到_config.yml文件，修改repository值。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一篇博客"><span class="nav-number">10.</span> <span class="nav-text">新建一篇博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改主题"><span class="nav-number">11.</span> <span class="nav-text">更改主题</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js环境"><span class="nav-number">1.</span> <span class="nav-text">node.js环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git环境"><span class="nav-number">2.</span> <span class="nav-text">git环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#博客地址"><span class="nav-number">3.</span> <span class="nav-text">博客地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-文档"><span class="nav-number">4.</span> <span class="nav-text">hexo 文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">5.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">6.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">7.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置免密登录"><span class="nav-number">8.</span> <span class="nav-text">配置免密登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加秘钥到GitHub-换电脑后要重新执行"><span class="nav-number">9.</span> <span class="nav-text">添加秘钥到GitHub,换电脑后要重新执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Deployment，在其文件夹中，找到-config-yml文件，修改repository值。"><span class="nav-number">10.</span> <span class="nav-text">配置Deployment，在其文件夹中，找到_config.yml文件，修改repository值。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建一篇博客"><span class="nav-number">11.</span> <span class="nav-text">新建一篇博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更改主题"><span class="nav-number">12.</span> <span class="nav-text">更改主题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
