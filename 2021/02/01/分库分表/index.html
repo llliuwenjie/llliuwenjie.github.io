@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="on my way">
 <meta property="og:description" content="前言随着公司业务的发展, 其中一些表数据量太多, 加索引已经不能解决问题, 数据拆分已经迫在眉睫, 所以分库分表调研任务下达, 做此记录 概念分库分表分为水平拆分和垂直拆分: 按照业务分库或分表属于垂直拆分; 水平拆分是将同样的库或表按照一定的分片规则拆成多个 目前库是不用分的, 一个库是足够的, 所以只涉及到分表 有的表是数据量太大, 这里就使用水平拆分 而有的表(订单表)是字段太多.., 可能">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-02-01T11:37:01.006Z">
+<meta property="og:updated_time" content="2021-02-01T11:40:55.677Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2021/02/01/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">
@@ -205,7 +205,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-02-01 18:24:05 / 修改时间：19:37:01" itemprop="dateCreated datePublished" datetime="2021-02-01T18:24:05+08:00">2021-02-01</time>
+              <time title="创建时间：2021-02-01 18:24:05 / 修改时间：19:40:55" itemprop="dateCreated datePublished" datetime="2021-02-01T18:24:05+08:00">2021-02-01</time>
             </span>
 
           
@@ -234,7 +234,7 @@
 <p>但架构设计上是不同的。Mycat 是基于 Proxy，它复写了 MySQL 协议，将 Mycat Server 伪装成一个 MySQL 数据库，而 Sharding-JDBC 是基于 JDBC 接口的扩展，是以 jar 包的形式提供轻量级服务的。</p>
 <p>性能来说, Sharding-JDBC 更高一些</p>
 <h2 id="所以"><a href="#所以" class="headerlink" title="所以"></a>所以</h2><p>我选择Sharding-JDBC</p>
-<p>性能高, 只支持Java, 对Java来说是好事, 集成Spring Boot</p>
+<p>性能高, Apache顶级项目, 只支持Java, 对Java来说是好事, 集成Spring Boot</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/sharding-jdbc-spring-boot-starter --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shardingsphere<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sharding-jdbc-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
     </div>
 
