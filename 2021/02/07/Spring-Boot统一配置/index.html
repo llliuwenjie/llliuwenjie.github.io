@@ -46,18 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="前言随着公司业务的发展, 其中一些表数据量太多, 加索引已经不能解决问题, 数据拆分已经迫在眉睫, 所以分库分表调研任务下达, 做此记录 概念分库分表分为水平拆分和垂直拆分: 按照业务分库或分表属于垂直拆分; 水平拆分是将同样的库或表按照一定的分片规则拆成多个 目前库是不用分的, 一个库是足够的, 所以只涉及到分表 有的表是数据量太大, 这里就使用水平拆分 而有的表(订单表)是字段太多.., 可能">
-<meta name="keywords" content="DB,mysql">
+  <meta name="description" content="前言因公司业务特性,对接第三方业务较多,所以项目较多,每个项目都有自己的配置文件,并且有些配置例如MQ,都是一样的,所以做了抽取 思路利用Spring自带的注解@PropertySource支持,不过自注解原生只支持*.properties配置文件 所以自己扩展一个,扩展PropertySourceFactory接口即可 代码版本 12345&amp;lt;parent&amp;gt;    &amp;lt;groupI">
+<meta name="keywords" content="Spring Boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分库分表中间件">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;02&#x2F;01&#x2F;%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8&#x2F;index.html">
+<meta property="og:title" content="Spring Boot统一配置">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2021&#x2F;02&#x2F;07&#x2F;Spring-Boot%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE&#x2F;index.html">
 <meta property="og:site_name" content="on my way">
-<meta property="og:description" content="前言随着公司业务的发展, 其中一些表数据量太多, 加索引已经不能解决问题, 数据拆分已经迫在眉睫, 所以分库分表调研任务下达, 做此记录 概念分库分表分为水平拆分和垂直拆分: 按照业务分库或分表属于垂直拆分; 水平拆分是将同样的库或表按照一定的分片规则拆成多个 目前库是不用分的, 一个库是足够的, 所以只涉及到分表 有的表是数据量太大, 这里就使用水平拆分 而有的表(订单表)是字段太多.., 可能">
+<meta property="og:description" content="前言因公司业务特性,对接第三方业务较多,所以项目较多,每个项目都有自己的配置文件,并且有些配置例如MQ,都是一样的,所以做了抽取 思路利用Spring自带的注解@PropertySource支持,不过自注解原生只支持*.properties配置文件 所以自己扩展一个,扩展PropertySourceFactory接口即可 代码版本 12345&amp;lt;parent&amp;gt;    &amp;lt;groupI">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-02-01T11:40:55.677Z">
+<meta property="og:updated_time" content="2021-02-07T03:47:09.858Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2021/02/01/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">
+<link rel="canonical" href="http://yoursite.com/2021/02/07/Spring-Boot%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE/">
 
 
 <script id="page-configurations">
@@ -69,7 +69,7 @@
   };
 </script>
 
-  <title>分库分表中间件 | on my way</title>
+  <title>Spring Boot统一配置 | on my way</title>
   
 
 
@@ -181,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/01/%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/07/Spring-Boot%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -194,7 +194,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          分库分表中间件
+          Spring Boot统一配置
         </h1>
 
         <div class="post-meta">
@@ -205,7 +205,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-02-01 18:24:05 / 修改时间：19:40:55" itemprop="dateCreated datePublished" datetime="2021-02-01T18:24:05+08:00">2021-02-01</time>
+              <time title="创建时间：2021-02-07 11:24:43 / 修改时间：11:47:09" itemprop="dateCreated datePublished" datetime="2021-02-07T11:24:43+08:00">2021-02-07</time>
             </span>
 
           
@@ -219,23 +219,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着公司业务的发展, 其中一些表数据量太多, 加索引已经不能解决问题, 数据拆分已经迫在眉睫, 所以分库分表调研任务下达, 做此记录</p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>分库分表分为水平拆分和垂直拆分: 按照业务分库或分表属于垂直拆分; 水平拆分是将同样的库或表按照一定的分片规则拆成多个</p>
-<p>目前库是不用分的, 一个库是足够的, 所以只涉及到分表</p>
-<p>有的表是数据量太大, 这里就使用水平拆分</p>
-<p>而有的表(订单表)是字段太多.., 可能是开始设计不合理, 这里就要用到垂直拆分</p>
-<h2 id="产品"><a href="#产品" class="headerlink" title="产品"></a>产品</h2><p>Sharding-JDBC Mycat</p>
-<p>开源的主流产品就是这俩了</p>
-<p>其中Sharding-JDBC已经进化为<a href="https://shardingsphere.apache.org/" target="_blank" rel="noopener">ShardingSphere</a>, 已于2020年4月16日成为 Apache 软件基金会的顶级项目</p>
-<p><a href="https://www.mycat.org.cn/" target="_blank" rel="noopener">Mycat</a> 前身Cobar, 目前是由社区志愿者们共同维护</p>
-<a id="more"></a>
-<h2 id="异同"><a href="#异同" class="headerlink" title="异同"></a>异同</h2><p>Sharding-JDBC 与 Mycat 有一定的相似性，区别点在于对于 SQL 语句的自解析上</p>
-<p>从设计理念上看确实有一定的相似性。主要流程都是 SQL解析 -&gt; SQL改写 -&gt; SQL路由 -&gt; SQL执行 -&gt; 结果归并</p>
-<p>但架构设计上是不同的。Mycat 是基于 Proxy，它复写了 MySQL 协议，将 Mycat Server 伪装成一个 MySQL 数据库，而 Sharding-JDBC 是基于 JDBC 接口的扩展，是以 jar 包的形式提供轻量级服务的。</p>
-<p>性能来说, Sharding-JDBC 更高一些</p>
-<h2 id="所以"><a href="#所以" class="headerlink" title="所以"></a>所以</h2><p>我选择Sharding-JDBC</p>
-<p>性能高, Apache顶级项目, 只支持Java, 对Java来说是好事, 集成Spring Boot</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.apache.shardingsphere/sharding-jdbc-spring-boot-starter --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shardingsphere<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sharding-jdbc-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>因公司业务特性,对接第三方业务较多,所以项目较多,每个项目都有自己的配置文件,并且有些配置例如MQ,都是一样的,所以做了抽取</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>利用Spring自带的注解@PropertySource支持,不过自注解原生只支持*.properties配置文件</p>
+<p>所以自己扩展一个,扩展PropertySourceFactory接口即可</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>版本</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>配置类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"rocketmq.test"</span>)</span><br><span class="line"><span class="meta">@PropertySource</span>(value = <span class="string">"classpath:application-mq.yml"</span>, encoding = <span class="string">"utf-8"</span>, factory = YamlPropertySourceFactory.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RocketMqProperties</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String test;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置类支持</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.config.YamlPropertiesFactoryBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.env.PropertiesPropertySource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.env.PropertySource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.io.support.EncodedResource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.io.support.PropertySourceFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 让<span class="doctag">@PropertySource</span>注解支持yml</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> liuwenjie</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/2/5 6:45 下午</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YamlPropertySourceFactory</span> <span class="keyword">implements</span> <span class="title">PropertySourceFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> PropertySource&lt;?&gt; createPropertySource(String name, EncodedResource resource) &#123;</span><br><span class="line">        YamlPropertiesFactoryBean factory = <span class="keyword">new</span> YamlPropertiesFactoryBean();</span><br><span class="line">        factory.setResources(resource.getResource());</span><br><span class="line">        factory.afterPropertiesSet();</span><br><span class="line">        Properties ymlProperties = factory.getObject();</span><br><span class="line">        String propertyName = name != <span class="keyword">null</span> ? name : resource.getResource().getFilename();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> PropertiesPropertySource(propertyName, ymlProperties);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="the-end"><a href="#the-end" class="headerlink" title="the end"></a>the end</h3><p>之前其实也想过几次,一来没有专门的时间,二来也没有动力,没有实现,最近看到了,所以集成进项目</p>
+<p>所以多看多输入,一个问题可能在当时解决不了,但是在过后的某一天终将会被解决</p>
+
     </div>
 
     
@@ -244,8 +242,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/DB/" rel="tag"># DB</a>
-              <a href="/tags/mysql/" rel="tag"># mysql</a>
+              <a href="/tags/Spring-Boot/" rel="tag"># Spring Boot</a>
           </div>
 
         
@@ -254,13 +251,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/29/Java-%E9%94%81-%E4%BA%8B/" rel="prev" title="Java'锁'事">
-      <i class="fa fa-chevron-left"></i> Java'锁'事
+    <a href="/2021/02/04/%E5%AE%8C%E5%85%A8%E6%95%B0/" rel="prev" title="完全数">
+      <i class="fa fa-chevron-left"></i> 完全数
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/02/04/%E6%A2%85%E6%A3%AE%E7%B4%A0%E6%95%B0/" rel="next" title="梅森素数">
-      梅森素数 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -320,7 +314,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产品"><span class="nav-number">3.</span> <span class="nav-text">产品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异同"><span class="nav-number">4.</span> <span class="nav-text">异同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#所以"><span class="nav-number">5.</span> <span class="nav-text">所以</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-end"><span class="nav-number">4.</span> <span class="nav-text">the end</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
